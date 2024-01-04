@@ -1,0 +1,13 @@
+package racingcar;
+
+public class Car {
+    private final String name;
+    private int position;
+
+    public Car(String name) {
+        this.name = name;
+        position = 0;
+    }
+
+    // 추가 기능 구현
+}
