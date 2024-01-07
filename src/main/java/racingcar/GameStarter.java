@@ -4,21 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//car를 만드는 것을 생각해서 클래스 선언
 public class GameStarter {
     void start(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        String[] carNames = getPlayerName(scanner);
+        String[] carNames = getPlayerName(input);
 
         List<Car> cars = getPlayerCar(carNames);
 
-        Result result = new Result();
-
-        int tryNumber = getTryNumber(scanner);
+        int tryNumber = getTryNumber(input);
 
         play(cars, tryNumber);
-        result.judgeResult(cars);
-        result.showResult();
+
+        Judgement judgement = new Judgement();
+        judgement.judgeResult(cars);
+        judgement.showResult();
     }
 
     private String[] getPlayerName(Scanner scanner) {
@@ -44,6 +45,7 @@ public class GameStarter {
 
     }
 
+    //하나의 도메인으로 나누는 것 : 게임 스타트에 핵심 비즈니스 로직인데 내부를 살펴봐야함. -> 살펴보지 않아도 알 수 있게 만들어야함.
     private void play(List<Car> cars, int tryNumber) {
         System.out.println("실행 결과");
         for(int i = 0; i < tryNumber; i++) {
