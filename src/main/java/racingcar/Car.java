@@ -8,6 +8,12 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        this.position = 0;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
     public String getName() {
@@ -19,7 +25,7 @@ public class Car {
     }
 
     // 추가 기능 구현
-    public int randomForward(int tryCount){
+    public int move(){
         if(isForward()){
             position++;
         }
@@ -30,7 +36,6 @@ public class Car {
         for(int i = 0 ; i < position ; i++){
             System.out.print("-");
         }
-        //System.out.print(" / position = " + position);
         System.out.println();
     }
 
