@@ -7,9 +7,9 @@ public class Judgement {
     //일급객체로 만드는 것을 고려
     private final List<Car> winners = new ArrayList<>();
 
-    public void judgeResult(List<Car> cars){
-        final int maxPosition = getMaxPosition(cars);
-        saveWinners(cars, maxPosition);
+    public void judgeResult(MakerCars player){
+        final int maxPosition = getMaxPosition(player.getPlayers());
+        saveWinners(player, maxPosition);
     }
 
     public void showResult(){
@@ -19,8 +19,8 @@ public class Judgement {
         }
     }
 
-    private void saveWinners(List<Car> cars, int max) {
-        for (Car car : cars) {
+    private void saveWinners(MakerCars player, int max) {
+        for (Car car : player.getPlayers()) {
             if(car.getPosition() == max) this.winners.add(car);
         }
     }
